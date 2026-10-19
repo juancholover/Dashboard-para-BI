@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+/* Tokens de Savia (Wellness Minimal) expuestos como tema de Tailwind v4. */
+@theme {
+  --color-canvas: #eff1ec;
+  --color-surface: #fbfbf8;
+  --color-ink: #1f2620;
+  --color-muted: #6e7568;
+  --color-faint: #8a9184;
+  --color-line: #d8dcd2;
+
+  --color-sage: #4e6b57;
+  --color-sage-soft: #dce5da;
+  --color-sage-deep: #33493c;
+  --color-bone: #f4f6f1;
+
+  --color-pos: #3f7a55;
+  --color-alert: #a3462f;
+
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sage);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-sage-soft);
+  }
+}
+
+/* Aviso de error oculto por defecto (el atributo hidden no basta si el elemento tiene display). */
+[hidden] {
+  display: none !important;
+}
