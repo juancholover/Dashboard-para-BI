@@ -6,5 +6,9 @@ export const routes: Routes = [
     path: 'gerencia',
     loadComponent: () => import('./features/gerencia/gerencia-page').then((m) => m.GerenciaPage),
   },
+  {
+    path: 'comercial',
+    loadComponent: () => import('./features/comercial/comercial-page').then((m) => m.ComercialPage),
+  },
   { path: '**', redirectTo: 'gerencia' },
 ];

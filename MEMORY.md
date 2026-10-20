@@ -3,7 +3,7 @@ Memoria viva del proyecto entre sesiones. Máximo ~50 líneas: resumir o podar l
 
 ## Estado actual
 - **App Angular 21.2** en `src/`: standalone, zoneless, `@ngrx/signals`, Tailwind v4, Chart.js y Vitest.
-  Página de Gerencia completa y verificada: `npm run build` limpio, `npm test` 9/9, Chrome sin errores.
+  Páginas de Gerencia y **Comercial** (`/comercial`) completas: `npm run build` limpio y `npm test` 9/9.
 - La UI de Savia vive en `src/`; los prototipos HTML se retiraron tras la migración a Angular.
 - Backend en producción: `https://vip-center-fit-bi.lrydev.me/api/v1` (público, sin auth).
 - Spec activa: `specs/001-gerencia-general/`. Etapa 2 completada.
@@ -16,6 +16,7 @@ Memoria viva del proyecto entre sesiones. Máximo ~50 líneas: resumir o podar l
   de los periodos **con ingresos** (membresías llega más lejos y despista).
 - **Filtros en cliente**: se traen las 3 fuentes una vez (~48 + ~216 filas) y se filtran/agregan.
 - **El plan filtra la tabla**, no la retención: `DM_Gerencia_Membresias` no tiene dimensión de plan.
+- **Comercial reutiliza** `FilterBar` y `TablaPlanes`; las promociones se agregan por nombre y los avisos toman la última `fechaCorte`.
 - **Verificación en Chrome (MCP)** obligatoria en cada cambio.
 
 ## Aprendizajes y errores a evitar
@@ -30,5 +31,5 @@ Memoria viva del proyecto entre sesiones. Máximo ~50 líneas: resumir o podar l
 - Las tasas llegan con muchos decimales: redondear a 1 decimal en `core/format.ts`.
 
 ## Próximos pasos
-- [ ] Pruebas de componente para la página de Gerencia.
-- [ ] Extender el patrón a Comercial, Entrenamiento y Recepción.
+- [ ] Pruebas de componente para las páginas de Gerencia y Comercial.
+- [ ] Extender el patrón a Entrenamiento y Recepción.

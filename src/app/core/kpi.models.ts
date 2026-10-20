@@ -100,3 +100,83 @@ export interface SerieCobros {
   readonly labels: readonly string[];
   readonly valores: readonly number[];
 }
+
+/* ------------------------------------------------------------------ Comercial */
+
+export interface AvisosCoberturaDto {
+  readonly rowKey: string;
+  readonly fechaCorte: string;
+  readonly membresiasProximasVencer: number;
+  readonly avisosRenovacionEmitidos: number;
+  readonly tasaCoberturaAvisos: number | null;
+}
+
+export interface PromocionesVentasDto {
+  readonly rowKey: string;
+  readonly anio: number;
+  readonly mesNumero: number;
+  readonly mes: string;
+  readonly tipoPlan: string;
+  readonly promocion: string;
+  readonly ingresosPorPromocion: number;
+  readonly ventasPorPromocion: number;
+  readonly descuentoOtorgado: number | null;
+}
+
+export interface PromocionesMembresiasDto {
+  readonly rowKey: string;
+  readonly anio: number;
+  readonly mesNumero: number;
+  readonly mes: string;
+  readonly promocion: string;
+  readonly empleado: string | null;
+  readonly membresiasVendidas: number;
+  readonly membresiasRenovadas: number;
+}
+
+export interface PromocionesClientesDto {
+  readonly rowKey: string;
+  readonly anio: number;
+  readonly mesNumero: number;
+  readonly mes: string;
+  readonly promocion: string;
+  readonly sexo: string | null;
+  readonly rangoEtario: string | null;
+  readonly clientesCaptados: number;
+}
+
+/** Fuentes del panel de Administración y Comercial. */
+export interface DatosComercial {
+  readonly planes: readonly ComercialPlanDto[];
+  readonly avisos: readonly AvisosCoberturaDto[];
+  readonly promosVentas: readonly PromocionesVentasDto[];
+  readonly promosMembresias: readonly PromocionesMembresiasDto[];
+  readonly promosClientes: readonly PromocionesClientesDto[];
+}
+
+export interface ResumenComercial {
+  readonly ingresos: number;
+  readonly ingresosAnterior: number;
+  readonly delta: number | null;
+  readonly ventas: number;
+  readonly vendidas: number;
+  readonly vencen: number;
+  readonly renovadas: number;
+  readonly renovacion: number | null;
+}
+
+export interface ResumenAvisos {
+  readonly fechaCorte: string | null;
+  readonly proximas: number;
+  readonly emitidos: number;
+  readonly tasa: number | null;
+}
+
+export interface FilaPromocion {
+  readonly promocion: string;
+  readonly ingresos: number;
+  readonly ventas: number;
+  readonly descuento: number;
+  readonly membresiasVendidas: number;
+  readonly membresiasRenovadas: number;
+}
